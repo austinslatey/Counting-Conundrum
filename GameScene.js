@@ -41,8 +41,8 @@ class GameScene extends Phaser.Scene {
     update() {
       if (gameState.circles.getChildren().length === 0) {
         // Add logic to transition from GameScene to EndScene
-              
-              
+        this.scene.stop('GameScene');
+        this.scene.start('EndScene');        
       }
     }
   
@@ -57,7 +57,8 @@ class GameScene extends Phaser.Scene {
     assignCoords () {
       let assignedCoord = this.generateRandomCoords();
   
-      // If the coordinates is already in gameState.numCoordinates, then other set of coordinates are generated until there is one not in use
+      // If the coordinates is already in gameState.numCoordinates, 
+      // then other set of coordinates are generated until there is one not in use
       while (gameState.numCoordinates[`x${assignedCoord.x}y${assignedCoord.y}`]) {
         assignedCoord = this.generateRandomCoords()
       }
