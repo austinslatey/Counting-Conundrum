@@ -53,21 +53,18 @@ class GameScene extends Phaser.Scene {
               gameState.counter++;
               gameState.correct++;
               currentCircle.destroy();
-            }
-            else {
+            } else {
               gameState.incorrect++;
               currentCircle.wrongTween.restart();
             }
 
-            gameState.score.setText(` Correct: ${gameState.correct}\nIncorrect: ${gameState.incorrect}`);
-
+            gameState.score.setText(
+              ` Correct: ${gameState.correct}\nIncorrect: ${gameState.incorrect}`
+            );
           });
-
-      
         },
       });
 
-      
       currentCircle.wrongTween = this.tweens.add({
         targets: currentCircle,
         paused: true,
@@ -75,10 +72,7 @@ class GameScene extends Phaser.Scene {
         scaleY: 1.5,
         yoyo: true,
         duration: 150,
-      })
-
-
-
+      });
     }
 
     // Adds in the starting text for GameScene
