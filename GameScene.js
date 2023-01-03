@@ -47,15 +47,6 @@ class GameScene extends Phaser.Scene {
             ` Correct: ${gameState.correct} \nIncorrect: ${gameState.incorrect}`
           );
 
-          currentCircle.wrongTween = this.tweens.add({
-            targets: currentCircle,
-            paused: true,
-            scaleX: 1.5,
-            scaleY: 1.5,
-            yoyo: true,
-            duration: 150,
-          })
-
           // Event Listener to Current Circle
           currentCircle.on("pointerup", () => {
             if (gameState.counter === currentCircle.number) {
@@ -71,8 +62,20 @@ class GameScene extends Phaser.Scene {
             gameState.score.setText(` Correct: ${gameState.correct}\nIncorrect: ${gameState.incorrect}`);
 
           });
+
+      
         },
       });
+
+      
+      currentCircle.wrongTween = this.tweens.add({
+        targets: currentCircle,
+        paused: true,
+        scaleX: 1.5,
+        scaleY: 1.5,
+        yoyo: true,
+        duration: 150,
+      })
 
 
 
